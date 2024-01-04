@@ -120,5 +120,4 @@ def minMax(board, depth = 3, maximizingPlayer=True): #should return the best mov
   return value, bestMove
 
 def main(board, isWhitesMove = True):
-  bitMap = compressedBitMap(board.fen())
-  return minMax(board, depth=3, maximizingPlayer=isWhitesMove)
+  return minMax(board, depth=3, maximizingPlayer=isWhitesMove)[1]

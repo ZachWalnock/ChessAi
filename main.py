@@ -75,7 +75,7 @@ def compressedBitMap(fen):
   #since we originally placed the pieces by defining rank 0 as the eigth index, we have to flip this list to stay in accordance to the definition
   bitMap[6] = bitMap[6][::-1]
   bitMap[7] = bitMap[7][::-1]
-  return bitMap, whiteMaterial, blackMaterial
+  return bitMap
 
 def eval(fen):
   x = np.array(compressedBitMap(fen)[0])
@@ -119,4 +119,6 @@ def minMax(board, depth = 3, maximizingPlayer=True): #should return the best mov
         bestMove = move
   return value, bestMove
 
-
+def main(board, isWhitesMove = True):
+  bitMap = compressedBitMap(board.fen())
+  return minMax(board, depth=3, maximizingPlayer=isWhitesMove)
